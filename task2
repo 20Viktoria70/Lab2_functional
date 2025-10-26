@@ -2,7 +2,6 @@
 # Напишіть функцію safeDiv, яка виконує ділення з перевіркою ділення на нуль.
 
 
-%%writefile main.hs
 safeDiv :: (Eq a, Fractional a) => a -> a -> Maybe a
 safeDiv _ 0 = Nothing
 safeDiv x y = Just (x / y)
