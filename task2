@@ -1,1 +1,17 @@
+# Завдання 1. Безпечне ділення
+# Напишіть функцію safeDiv, яка виконує ділення з перевіркою ділення на нуль.
 
+
+%%writefile main.hs
+safeDiv :: (Eq a, Fractional a) => a -> a -> Maybe a
+safeDiv _ 0 = Nothing
+safeDiv x y = Just (x / y)
+
+main :: IO ()
+main = do
+    putStrLn "Введіть два числа через пробіл (x y):"
+    input <- getLine
+    let [x, y] = map read (words input) :: [Double]
+    case safeDiv x y of
+        Nothing -> putStrLn "Ділення на нуль неможливе!"
+        Just result -> putStrLn ("Результат ділення: " ++ show result)
