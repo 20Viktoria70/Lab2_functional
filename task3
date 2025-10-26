@@ -1,0 +1,18 @@
+# Завдання 3. Побудова множника
+# Напишіть функцію mkMultiplier, яка приймає число і повертає функцію множення на це число.
+# mkMultiplier :: Num a => a -> (a -> a)
+
+
+mkMultiplier :: Num a => a -> (a -> a)
+mkMultiplier n = (\x -> n * x)
+
+main :: IO ()
+main = do
+    putStrLn "Введіть число-множник:"
+    inputN <- getLine
+    let n = read inputN :: Int
+    let multiplier = mkMultiplier n
+    putStrLn "Введіть число для множення:"
+    inputX <- getLine
+    let x = read inputX :: Int
+    putStrLn ("Результат: " ++ show (multiplier x))
